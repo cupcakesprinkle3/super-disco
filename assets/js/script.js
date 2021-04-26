@@ -77,10 +77,10 @@ console.log("full array of plans", plansArr); */
 $(document).ready(function() {
 
     $( ".saveButton").on("click", function () {
-      var text = $(this).siblings(".toDoInput").val();
-      var hour = $(this).parent().attr("id");
-      
-      localStorage.setItem(text, hour);
+        var x = document.getElementsByClassName("toDoInput");
+        var y = document.getElementsByClassName("hour");    
+        localStorage.setItem(x, y);
+        console.log("program gets here");  
     });
 
   // SET COLOR OF ENTRY ROW   
@@ -90,23 +90,23 @@ $(document).ready(function() {
 
       $(".entry").each(function() {
           
-        /* CREDIT - How to get hour from id on stack overflow
-          https://stackoverflow.com/questions/22828474/how-to-get-number-from-the-id-value */
+    /* CREDIT - How to get hour from id on stack overflow
+    https://stackoverflow.com/questions/22828474/how-to-get-number-from-the-id-value */
 
-          var entryHour = parseInt($(this).attr("id").replace('hour-',''));
-          console.log(entryHour);
+        var entryHour = parseInt($(this).attr("id").replace('hour-',''));
+        console.log(entryHour);
 
-          if (entryHour < currentHour) {
-          $(this).removeClass(".future");
-          $(this).removeClass(".present");
-          $(this).addClass(".past");
-      }
-      else if (entryHour > currentHour) {
+        if (entryHour < currentHour) {
+        $(this).removeClass(".future");
+        $(this).removeClass(".present");
+        $(this).addClass(".past");
+        }
+        else if (entryHour > currentHour) {
         $(this).removeClass("past");
         $(this).removeClass("present");
         $(this).addClass("future");
-      }    
-     else {
+        }    
+        else {
         $(this).removeClass("past");
         $(this).removeClass("future");
         $(this).addClass("present");
@@ -156,16 +156,6 @@ $(document).ready(function() {
   // ATTEMPTING TO SET HOUR ON LEFT UNSUCCESSFULLY
   // convert to moment object at 5:00pm
   // var time = moment(date, "L").set("hour", 17); */
-
-  $("#hour-9.toDoInput").val(localStorage.getItem("hour-9"));
-  $("#hour-10.toDoInput").val(localStorage.getItem("hour-10"));
-  $("#hour-11.toDoInput").val(localStorage.getItem("hour-11"));
-  $("#hour-12.toDoInput").val(localStorage.getItem("hour-12"));
-  $("#hour-13.toDoInput").val(localStorage.getItem("hour-13"));
-  $("#hour-14.toDoInput").val(localStorage.getItem("hour-14"));
-  $("#hour-15.toDoInput").val(localStorage.getItem("hour-15"));
-  $("#hour-16.toDoInput").val(localStorage.getItem("hour-16"));
-  $("#hour-17.toDoInput").val(localStorage.getItem("hour-17"));
 
 
 };
