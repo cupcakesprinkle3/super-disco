@@ -49,7 +49,7 @@ body {
   }
   
   .past {
-    background-color: darkslategray;
+    background-color: gray;
     color: white;
   }
   
@@ -59,7 +59,7 @@ body {
   }
   
   .future {
-    background-color: #77dd77;
+    background-color: lightgreen;
     color: white;
   }
   
