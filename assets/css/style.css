@@ -21,23 +21,19 @@ body {
     border-bottom: 10px solid black;
   }
   
+  main {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+
   .toDoInput {
     white-space: pre-wrap;
   }
 
-  /* .container {
-    align-items: center;
-    justify-content: center;
-  } */
-
-  .entry {
-    text-align: center;
-   /* border-radius: 15px; */
-  }
-  
   .row {
     white-space: pre-wrap;
-    height: 80px;
+    height: 70px;
     border-top: 1px solid white;
     border-bottom: 1px solid darkblue;
   }
