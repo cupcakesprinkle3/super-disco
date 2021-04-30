@@ -1,7 +1,4 @@
 
-// var plans = {};
-// var planContainer = document.getElementById('dayContainer');
-
 // START WORKING DATE AT TOP
 
 var showDate = function() {
@@ -18,27 +15,15 @@ var showDate = function() {
 
 // END WORKING DATE AT TOP
 
-// ATTEMPTING TO DYNAMICALLY SET HOUR UNSUCCESSFULLY FOR ONE BLOCK
+// LOGGING ATTEMPT TO DYNAMICALLY SET HOUR UNSUCCESSFULLY FOR ONE BLOCK
 //var showTimeOne = function() {
 //    var oneMoment = moment(date).set("hour", 9);
 //    var displayHourOne = document.getElementById('timeBlockOne');
 //    displayHourOne.innerHTML = oneMoment;
 //} 
 
-/* 
- var loadPlans = JSON.parse(localStorage.getItem("loadPlans"));
-  
-    // if nothing in localStorage, create a new object to track all task status arrays
-    if (loadPlans !== null) {
-        plansArr = loadPlans;
-    }
-    else {
-        plansArr = new Array(9);
-    }
 
-console.log("full array of plans", plansArr); */
-
-// ATTEMPTING TO LOOP THE 9 TO 5 DYNAMICALLY UNSUCCESSFULLY 
+// LOGGING ATTEMP TO LOOP THE 9 TO 5 DYNAMICALLY UNSUCCESSFULLY 
 
 /* for (var hour = 9; hour <= 17; hour++) {
     index = hour - 9;
@@ -76,30 +61,44 @@ console.log("full array of plans", plansArr); */
 
 $(document).ready(function() {
 
-    $( ".saveButton").on("click", function () {
-        var x = document.getElementsByClassName("toDoInput");
-        var y = document.getElementsByClassName("hour");    
-        localStorage.setItem(x, y);
-        console.log("program gets here");  
-    });
+  // LOGGING ATTEMPT TO SET ON CLICK TO GET BY CLASS NAME
+  //  console.log("works till here at least");
 
+  //  $( ".saveButton").on("click", function () {
+  //      var x = document.getElementsByClassName("toDoInput");
+  //      var y = document.getElementsByClassName("hour");   
+  //      console.log("works till here at least"); 
+  //      localStorage.setItem(x, y);
+  // });
+   
   // SET COLOR OF ENTRY ROW   
  
       function hourTracker() {
+        
       var currentHour = moment().hour();
 
       $(".entry").each(function() {
-          
-    /* CREDIT - How to get hour from id on stack overflow
-    https://stackoverflow.com/questions/22828474/how-to-get-number-from-the-id-value */
+
+        var kids = $(this).children();
+        var text = kids.eq(1);
+        var save = kids.eq(2);
 
         var entryHour = parseInt($(this).attr("id").replace('hour-',''));
-        console.log(entryHour);
+
+        /* CREDIT - How to get hour from id on stack overflow
+    https://stackoverflow.com/questions/22828474/how-to-get-number-from-the-id-value */
+
+        $(save).on("click", function () {
+        console.log(text.val());
+        localStorage.setItem(entryHour, text.val());
+        });
+    
+        console.log(this);
 
         if (entryHour < currentHour) {
-        $(this).removeClass(".future");
-        $(this).removeClass(".present");
-        $(this).addClass(".past");
+        $(this).removeClass("future");
+        $(this).removeClass("present");
+        $(this).addClass("past");
         }
         else if (entryHour > currentHour) {
         $(this).removeClass("past");
