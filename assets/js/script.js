@@ -74,10 +74,13 @@ $(document).ready(function() {
   // SET COLOR OF ENTRY ROW   
  
       function hourTracker() {
-        
+
       var currentHour = moment().hour();
 
       $(".entry").each(function() {
+
+      /* CREDIT - Tutor helped with the idea for using children and jquery eq, and pointed me to:
+      https://www.w3schools.com/jquery/sel_eq.asp#:~:text=The%20%3Aeq()%20selector%20selects,like%20in%20the%20example%20above). */
 
         var kids = $(this).children();
         var text = kids.eq(1);
